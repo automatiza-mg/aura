@@ -1,3 +1,4 @@
+ipdb==0.13.13
 taskipy==1.13.0
 SQLAlchemy==2.0.31
 streamlit==1.36.0

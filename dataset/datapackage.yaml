@@ -1,0 +1,13 @@
+name: automatiza-mg
+profile: tabular-data-package
+owner_org: secretaria-de-estado-de-planejamento-e-gestao-seplag
+frequencia_atualização: diária
+contributors:
+  - title: Diretoria Central de Desburocratização
+    role: author
+    email: simplificacao@planejamento.mg.gov.br
+licenses:
+  - name: CC-BY-4.0
+    title: Creative Commons Attribution 4.0
+    path: https://creativecommons.org/licenses/by/4.0/
+resources: []

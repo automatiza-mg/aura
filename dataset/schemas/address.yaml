@@ -1,0 +1,16 @@
+fields:
+  - name: id
+    title: |
+      Id
+    description:
+      Id
+  - name: email_address
+    title: |
+      E-mail
+    description: |
+      E-mail do usuário
+  - name: user_id
+    title: |
+      Chave estrangeira
+    description: |
+      Ligação com a tabela usuários
