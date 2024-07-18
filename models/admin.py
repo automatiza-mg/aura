@@ -2,6 +2,7 @@ from django.contrib import admin
 from .orgao_model import Orgao
 from .pedido_imersao_model import PedidoImersao
 from .projeto_model import Projeto
+from .robo_model import Robo
 
 class OrgaoAdmin(admin.ModelAdmin):
     # fields at the models' index page
@@ -27,6 +28,13 @@ class PedidoImersaoAdmin(admin.ModelAdmin):
 class ProjetoAdmin(admin.ModelAdmin):
     pass
 
+class RoboAdmin(admin.ModelAdmin):
+    list_display = (
+        'nome',
+        'fase',
+    )
+
 admin.site.register(Orgao, OrgaoAdmin)
 admin.site.register(PedidoImersao, PedidoImersaoAdmin)
-admin.site.register(Projeto,ProjetoAdmin)
+admin.site.register(Projeto, ProjetoAdmin)
+admin.site.register(Robo, RoboAdmin)
