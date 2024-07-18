@@ -3,19 +3,23 @@ from .base_model import BaseModel
 from .pedido_imersao_model import PedidoImersao
 #from .sistema_model import Sistema
 
-class Robos(BaseModel):
+class Robo(BaseModel):
     nome = models.CharField(max_length=100)
    
-    tempo_execucao_robo = models.DurationField(
-        max_length=6,
+    tempo_execucao_robo = models.IntegerField(
+        null= True,
+        blank= True,
     )
-    tempo_execucao_manual = models.DurationField(
-        max_length=6,
+
+    tempo_execucao_manual = models.IntegerField(
+        null= True,
+        blank= True,
     )
+
     #sistema_id = models.ForeignKey(Sistema, on_delete=models.CASCADE)
     
     fase_choices = [
-        ('INIT', 'A Iniciar'),
+        ('NAOI', 'Não iniciado'),
         ('EXEC', 'Em execução'),
         ('CONC', 'Concluído'),
     ]
