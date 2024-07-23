@@ -8,6 +8,7 @@ from .indicador_model import Indicador
 from .usuario import Usuario
 from .equipe_projeto import EquipeProjeto
 from .avaliacao import Avaliacao
+from .pedido_manutencao_model import PedidoManutencao
 
 class OrgaoAdmin(admin.ModelAdmin):
     # fields at the models' index page
@@ -56,6 +57,9 @@ class EquipeProjetoAdmin(admin.ModelAdmin):
 class AvaliacaoAdmin(admin.ModelAdmin):
     pass
 
+class PedidoManutencaoAdmin(admin.ModelAdmin):
+    pass
+
 admin.site.register(Orgao, OrgaoAdmin)
 admin.site.register(PedidoImersao, PedidoImersaoAdmin)
 admin.site.register(Projeto, ProjetoAdmin)
@@ -65,3 +69,4 @@ admin.site.register(Indicador, IndicadorAdmin)
 admin.site.register(Usuario, UsuarioAdmin)
 admin.site.register(EquipeProjeto, EquipeProjetoAdmin)
 admin.site.register(Avaliacao, AvaliacaoAdmin)
+admin.site.register (PedidoManutencaoAdmin, PedidoManutencaoAdmin)

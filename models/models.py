@@ -8,3 +8,4 @@ from .indicador_model import Indicador
 from .usuario import Usuario
 from .equipe_projeto import EquipeProjeto
 from .avaliacao import Avaliacao
+from .pedido_manutencao_model import PedidoManutencao
