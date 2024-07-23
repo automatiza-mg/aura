@@ -6,3 +6,4 @@ from .robo_model import Robo
 #from .sistema_model import Sistema
 from .indicador_model import Indicador
 from .usuario import Usuario
+from .equipe_projeto import EquipeProjeto
