@@ -78,7 +78,7 @@ class PedidoImersao(BaseModel):
         choices=projeto_estrategico_choices,
     )
     Projeto_estrategico_id = models.ForeignKey(
-        ProjetoEstrategico, 
+        ProjetoEstrategico,
         on_delete=models.CASCADE,
         null = True,
         blank= True
@@ -138,14 +138,14 @@ class PedidoImersao(BaseModel):
         choices=impacto_arrecadacao_choices,
     )
     valor_arrecadacao = models.DecimalField(
-        max_digits=10, 
+        max_digits=10,
         decimal_places=2,
         null = True,
         blank = True,
     )
-    usuario_id_principal = models.ForeignKey(Usuario, on_delete=models.CASCADE)
-    
-    usuario_id_apoio = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    usuario_id_principal = models.ForeignKey(Usuario, related_name='usuario_id_principal', on_delete=models.CASCADE)
+
+    usuario_id_apoio = models.ForeignKey(Usuario, related_name='usuario_id_apoio', on_delete=models.CASCADE)
 
     fase_choices = [
         ('PREC', 'Pedido recebido'),
@@ -196,4 +196,3 @@ class PedidoImersao(BaseModel):
         null = True,
         blank = True,
     )
-
