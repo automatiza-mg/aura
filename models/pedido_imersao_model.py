@@ -145,12 +145,7 @@ class PedidoImersao(BaseModel):
     )
     usuario_id_principal = models.ForeignKey(Usuario, on_delete=models.CASCADE,)
     
-    usuario_id_apoio = models.ForeignKey(
-        Usuario, 
-        on_delete=models.CASCADE,
-        null = True, 
-        blank=True,
-    )
+    #usuario_id_apoio = models.ForeignKey(Usuario, on_delete=models.CASCADE,)
 
     # fase_choices = [
     #     ('PREC', 'Pedido recebido'),
