@@ -143,28 +143,29 @@ class PedidoImersao(BaseModel):
         null = True,
         blank = True,
     )
-    usuario_id_principal = models.ForeignKey(Usuario, on_delete=models.CASCADE,)
+    usuario_id_principal = models.ForeignKey(Usuario, on_delete=models.CASCADE)
     
-    #usuario_id_apoio = models.ForeignKey(Usuario, on_delete=models.CASCADE,)
+    usuario_id_apoio = models.ForeignKey(Usuario, on_delete=models.CASCADE)
 
-    # fase_choices = [
-    #     ('PREC', 'Pedido recebido'),
-    #     ('PEAN', 'Pedido em análise'),
-    #     ('PANA', 'Pedido analisado'),
-    # ]
-    # fase = models.CharField(
-    #     max_length=4,
-    #     choices=fase_choices,
-    # )
-    # status_choices = [
-    #     ('PREC', 'Pedido recebido'),
-    #     ('PEAN', 'Pedido em análise'),
-    #     ('PANA', 'Pedido analisado'),
-    # ]
-    # status = models.CharField(
-    #     max_length=4,
-    #     choices=status_choices,
-    # )
+    fase_choices = [
+        ('PREC', 'Pedido recebido'),
+        ('PEAN', 'Pedido em análise'),
+        ('PANA', 'Pedido analisado'),
+    ]
+    fase = models.CharField(
+        max_length=4,
+        choices=fase_choices,
+    )
+    status_choices = [
+        ('NAN', 'Pedido não analisado'),
+        ('APR', 'Pedido aprovado'),
+        ('ENC', 'Pedido encaminhado'),
+        ('NAT', 'Pedido não atendido'),
+    ]
+    status = models.CharField(
+        max_length=4,
+        choices=status_choices,
+    )
     link_issue = models.URLField(
         max_length=300,
         null = True,
@@ -187,6 +188,7 @@ class PedidoImersao(BaseModel):
         ('CM', 'Curso e mentoria'),
         ('CU', 'Curso EAD'),
         ('PE', 'Projeto extensão'),
+        ('ND', 'Não definido'),
     ]
     formato_atendimento = models.CharField(
         max_length=2,
