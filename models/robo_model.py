@@ -1,7 +1,7 @@
 from django.db import models
 from .base_model import BaseModel
 from .pedido_imersao_model import PedidoImersao
-from .sistema_model import Sistema
+#from .sistema_model import Sistema
 
 class Robo(BaseModel):
     nome = models.CharField(max_length=100)
@@ -16,7 +16,7 @@ class Robo(BaseModel):
         blank= True,
     )
 
-    sistema_id = models.ForeignKey(Sistema, on_delete=models.CASCADE)
+    #sistema_id = models.ForeignKey(Sistema, on_delete=models.CASCADE)
     
     fase_choices = [
         ('NAOI', 'Não iniciado'),
