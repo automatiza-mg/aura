@@ -4,6 +4,7 @@ from .pedido_imersao_model import PedidoImersao
 from .projeto_model import Projeto
 from .robo_model import Robo
 from .sistema_model import Sistema
+from .indicador_model import Indicador
 
 class OrgaoAdmin(admin.ModelAdmin):
     # fields at the models' index page
@@ -37,8 +38,12 @@ class RoboAdmin(admin.ModelAdmin):
 class SistemaAdmin(admin.ModelAdmin):
     pass
 
+class IndicadorAdmin(admin.ModelAdmin):
+   pass
+
 admin.site.register(Orgao, OrgaoAdmin)
 admin.site.register(PedidoImersao, PedidoImersaoAdmin)
 admin.site.register(Projeto, ProjetoAdmin)
 admin.site.register(Robo, RoboAdmin)
 admin.site.register(Sistema, SistemaAdmin)
+admin.site.register(Indicador, IndicadorAdmin)
