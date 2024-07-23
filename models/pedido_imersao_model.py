@@ -19,20 +19,28 @@ class PedidoImersao(BaseModel):
     )
     email_demandante = models.EmailField(
         max_length=254,
+        default='n/a',
     )
     telefone_demandante = models.CharField(
         max_length=13,
+        default='n/a',
     )
-    orgao_id = models.ForeignKey(Orgao, on_delete=models.CASCADE)
+    orgao_id = models.ForeignKey(Orgao,
+                                 on_delete=models.CASCADE,
+                                 default=0,
+                                 )
 
     orgao_outros = models.CharField(
         max_length=100,
+        default='n/a',
     )
     nome_processo = models.CharField(
         max_length=100,
+        default='n/a',
     )
     descricao_processo = models.CharField(
         max_length=300,
+        default='n/a',
     )
     processo_comum_choices = [
         ('S', 'Sim'),
@@ -41,6 +49,7 @@ class PedidoImersao(BaseModel):
     processo_comum_orgaos = models.CharField(
         max_length=1,
         choices=processo_comum_choices,
+        default='n/a',
     )
     conhecimento_automate_choices = [
         ('A', 'Alto'),
@@ -49,7 +58,8 @@ class PedidoImersao(BaseModel):
     ]
     conhecimento_automate = models.CharField(
         max_length=1,
-        choices=conhecimento_automate_choices
+        choices=conhecimento_automate_choices,
+        default='n/a'
     )
     conhecimento_excel_choices = [
         ('A', 'Alto'),
@@ -58,7 +68,8 @@ class PedidoImersao(BaseModel):
     ]
     conhecimento_excel = models.CharField(
         max_length=1,
-        choices=conhecimento_excel_choices
+        choices=conhecimento_excel_choices,
+        default='n/a',
     )
     conhecimento_programacao_choices = [
         ('A', 'Alto'),
@@ -67,7 +78,8 @@ class PedidoImersao(BaseModel):
     ]
     conhecimento_programacao = models.CharField(
         max_length=1,
-        choices=conhecimento_programacao_choices
+        choices=conhecimento_programacao_choices,
+        default='n/a',
     )
     projeto_estrategico_choices = [
         ('S', 'Sim'),
@@ -76,12 +88,14 @@ class PedidoImersao(BaseModel):
     projeto_estrategico = models.CharField(
         max_length=1,
         choices=projeto_estrategico_choices,
+        default='n/a',
     )
     Projeto_estrategico_id = models.ForeignKey(
         ProjetoEstrategico,
         on_delete=models.CASCADE,
         null = True,
-        blank= True
+        blank= True,
+        default=0,
     )
     existe_automacao_choices = [
         ('S', 'Sim'),
@@ -90,6 +104,7 @@ class PedidoImersao(BaseModel):
     existe_automacao = models.CharField(
         max_length=1,
         choices=existe_automacao_choices,
+        default='n/a',
     )
     detalhamento_automacao = models.CharField(
         max_length=300,
@@ -103,6 +118,7 @@ class PedidoImersao(BaseModel):
     existe_bd = models.CharField(
         max_length=1,
         choices=existe_bd_choices,
+        default='n/a',
     )
     detalhamento_bd = models.CharField(
         max_length=300,
@@ -122,6 +138,7 @@ class PedidoImersao(BaseModel):
     periocdicidade = models.CharField(
         max_length=3,
         choices=periodicidade_choices,
+        default='n/a',
     )
     recorrencia = models.IntegerField
 
@@ -136,6 +153,7 @@ class PedidoImersao(BaseModel):
     impacto_arrecadacao = models.CharField(
         max_length=1,
         choices=impacto_arrecadacao_choices,
+        default='n/a',
     )
     valor_arrecadacao = models.DecimalField(
         max_digits=10,
@@ -143,9 +161,17 @@ class PedidoImersao(BaseModel):
         null = True,
         blank = True,
     )
-    usuario_id_principal = models.ForeignKey(Usuario, related_name='usuario_id_principal', on_delete=models.CASCADE)
+    usuario_id_principal = models.ForeignKey(Usuario,
+                                             related_name='usuario_id_principal',
+                                             on_delete=models.CASCADE,
+                                             default=0,
+                                             )
 
-    usuario_id_apoio = models.ForeignKey(Usuario, related_name='usuario_id_apoio', on_delete=models.CASCADE)
+    usuario_id_apoio = models.ForeignKey(Usuario,
+                                         related_name='usuario_id_apoio',
+                                         on_delete=models.CASCADE,
+                                         default=0,
+                                         )
 
     fase_choices = [
         ('PREC', 'Pedido recebido'),
@@ -155,6 +181,7 @@ class PedidoImersao(BaseModel):
     fase = models.CharField(
         max_length=4,
         choices=fase_choices,
+        default='n/a',
     )
     status_choices = [
         ('NAN', 'Pedido não analisado'),
@@ -165,6 +192,7 @@ class PedidoImersao(BaseModel):
     status = models.CharField(
         max_length=4,
         choices=status_choices,
+        default='n/a',
     )
     link_issue = models.URLField(
         max_length=300,
@@ -178,9 +206,12 @@ class PedidoImersao(BaseModel):
     ]
     nivel_prioridade = models.CharField(
         max_length=1,
-        choices=nivel_prioridade_choices
+        choices=nivel_prioridade_choices,
+        default='n/a',
     )
-    nota_prioridade = models.IntegerField
+    nota_prioridade = models.IntegerField(
+        default=0,
+    )
 
     formato_atendimento_choices = [
         ('IA', 'Imersão automatiza'),
