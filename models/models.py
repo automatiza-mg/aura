@@ -7,3 +7,4 @@ from .robo_model import Robo
 from .indicador_model import Indicador
 from .usuario import Usuario
 from .equipe_projeto import EquipeProjeto
+from .avaliacao import Avaliacao

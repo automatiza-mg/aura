@@ -7,6 +7,7 @@ from .robo_model import Robo
 from .indicador_model import Indicador
 from .usuario import Usuario
 from .equipe_projeto import EquipeProjeto
+from .avaliacao import Avaliacao
 
 class OrgaoAdmin(admin.ModelAdmin):
     # fields at the models' index page
@@ -52,6 +53,9 @@ class UsuarioAdmin(admin.ModelAdmin):
 class EquipeProjetoAdmin(admin.ModelAdmin):
     pass
 
+class AvaliacaoAdmin(admin.ModelAdmin):
+    pass
+
 admin.site.register(Orgao, OrgaoAdmin)
 admin.site.register(PedidoImersao, PedidoImersaoAdmin)
 admin.site.register(Projeto, ProjetoAdmin)
@@ -60,3 +64,4 @@ admin.site.register(Robo, RoboAdmin)
 admin.site.register(Indicador, IndicadorAdmin)
 admin.site.register(Usuario, UsuarioAdmin)
 admin.site.register(EquipeProjeto, EquipeProjetoAdmin)
+admin.site.register(Avaliacao, AvaliacaoAdmin)
