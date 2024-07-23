@@ -1,6 +1,6 @@
 from django.db import models
 from .base_model import BaseModel
-from .usuario import Usuario
+from .usuario_model import Usuario
 from .projeto_model import Projeto
 
 
