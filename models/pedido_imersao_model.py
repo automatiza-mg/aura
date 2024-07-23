@@ -145,7 +145,12 @@ class PedidoImersao(BaseModel):
     )
     usuario_id_principal = models.ForeignKey(Usuario, on_delete=models.CASCADE,)
     
-    usuario_id_apoio = models.ForeignKey(Usuario, on_delete=models.CASCADE,)
+    usuario_id_apoio = models.ForeignKey(
+        Usuario, 
+        on_delete=models.CASCADE,
+        null = True, 
+        blank=True,
+    )
 
     # fase_choices = [
     #     ('PREC', 'Pedido recebido'),
@@ -179,9 +184,8 @@ class PedidoImersao(BaseModel):
         max_length=1,
         choices=nivel_prioridade_choices
     )
-    nota_prioridade = models.IntegerField(
-        max_length=2
-    )
+    nota_prioridade = models.IntegerField
+
     formato_atendimento_choices = [
         ('IA', 'Imersão automatiza'),
         ('TV', 'Time volante'),
@@ -191,7 +195,7 @@ class PedidoImersao(BaseModel):
     ]
     formato_atendimento = models.CharField(
         max_length=2,
-        choices=formato_atendimento_choices
+        choices=formato_atendimento_choices,
         null = True,
         blank = True,
     )
