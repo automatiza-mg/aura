@@ -5,3 +5,4 @@ from .projeto_model import Projeto
 from .robo_model import Robo
 #from .sistema_model import Sistema
 from .indicador_model import Indicador
+from .usuario import Usuario

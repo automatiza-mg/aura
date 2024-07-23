@@ -5,6 +5,7 @@ from .projeto_model import Projeto
 from .robo_model import Robo
 #from .sistema_model import Sistema
 from .indicador_model import Indicador
+from .usuario import Usuario
 
 class OrgaoAdmin(admin.ModelAdmin):
     # fields at the models' index page
@@ -41,9 +42,18 @@ class RoboAdmin(admin.ModelAdmin):
 class IndicadorAdmin(admin.ModelAdmin):
    pass
 
+class UsuarioAdmin(admin.ModelAdmin):
+    list_display = (
+        'nome',
+        'email',
+        'github_user',
+    )
+
+
 admin.site.register(Orgao, OrgaoAdmin)
 admin.site.register(PedidoImersao, PedidoImersaoAdmin)
 admin.site.register(Projeto, ProjetoAdmin)
 admin.site.register(Robo, RoboAdmin)
 #admin.site.register(Sistema, SistemaAdmin)
 admin.site.register(Indicador, IndicadorAdmin)
+admin.site.register(Usuario, UsuarioAdmin)
