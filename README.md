@@ -4,8 +4,11 @@ O objetivo deste repositório é documentar o nosso Sistema de Monitoramento e A
 
 ## Setup
 
+[![Watch the video](https://img.youtube.com/vi/sKZJpcMSuSs/maxresdefault.jpg)](https://youtu.be/sKZJpcMSuSs)
+
 - Clonar repositório
-```$ git clone https://github.com/automatiza-mg/sima.git 
+```$
+git clone https://github.com/automatiza-mg/sima.git 
 ```
 
 - Criar ambiente virtual python e instalar pacotes
