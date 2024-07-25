@@ -22,7 +22,6 @@ $ pip install -r requirements.txt
 - Rodar migrações
 
 ```python
-$ python manage.py makemigrations
 $ python manage.py migrate
 ```
 
@@ -30,4 +29,10 @@ $ python manage.py migrate
 
 ```python
 $ python manage.py createsuperuser
+```
+
+- Ligar o servidor
+
+```python
+$ $ python manage.py runserver
 ```
