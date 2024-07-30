@@ -5,7 +5,7 @@ from .projeto_model import Projeto
 from .robo_model import Robo
 #from .sistema_model import Sistema
 from .indicador_model import Indicador
-from .usuario_model import Usuario
+# from .usuario_model import Usuario
 from .equipe_projeto_model import EquipeProjeto
 from .avaliacao_model import Avaliacao
 from .pedido_manutencao_model import PedidoManutencao
@@ -45,12 +45,12 @@ class RoboAdmin(admin.ModelAdmin):
 class IndicadorAdmin(admin.ModelAdmin):
    pass
 
-class UsuarioAdmin(admin.ModelAdmin):
-    list_display = (
-        'nome',
-        'email',
-        'github_user',
-    )
+# class UsuarioAdmin(admin.ModelAdmin):
+#     list_display = (
+#         'nome',
+#         'email',
+#         'github_user',
+#     )
 class EquipeProjetoAdmin(admin.ModelAdmin):
     pass
 
@@ -66,7 +66,7 @@ admin.site.register(Projeto, ProjetoAdmin)
 admin.site.register(Robo, RoboAdmin)
 #admin.site.register(Sistema, SistemaAdmin)
 admin.site.register(Indicador, IndicadorAdmin)
-admin.site.register(Usuario, UsuarioAdmin)
+# admin.site.register(Usuario, UsuarioAdmin)
 admin.site.register(EquipeProjeto, EquipeProjetoAdmin)
 admin.site.register(Avaliacao, AvaliacaoAdmin)
 admin.site.register (PedidoManutencao, PedidoManutencaoAdmin)
