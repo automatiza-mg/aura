@@ -10,6 +10,7 @@ RUN apt-get update
 # install dependencies
 RUN pip install --upgrade pip
 COPY . /app
+RUN --mount=type=secret,id=_env,dst=/etc/secrets/.env cat /etc/secrets/.env
 RUN pip install -r requirements.txt
 RUN python manage.py migrate
 
