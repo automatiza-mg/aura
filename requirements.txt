@@ -5,4 +5,4 @@ ipdb==0.13.13
 streamlit==1.36.0
 taskipy==1.13.0
 python-dotenv==1.0.1
-
+taskipy==1.13.0
