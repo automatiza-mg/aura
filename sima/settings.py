@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
+import dj_database_url
 from pathlib import Path
 import os
 from dotenv import load_dotenv
@@ -26,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG')
+DEBUG = True if os.environ.get('DEBUG') == 'True' else False
 
 ALLOWED_HOSTS = [os.environ.get('ALLOWED_HOSTS', '')]
 CSRF_TRUSTED_ORIGINS = [os.environ.get('CSRF_TRUSTED_ORIGINS', '')]
@@ -87,14 +88,7 @@ if DEBUG:
     }
 else:
     DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': os.environ.get('PG_DB_NAME'),
-            'USER':  os.environ.get('PG_DB_USER'),
-            'PASSWORD':  os.environ.get('PG_DB_PASSWORD'),
-            'HOST':  os.environ.get('PG_DB_HOST'),
-            'PORT':  os.environ.get('PG_DB_PORT'),
-        }
+         "default": dj_database_url.parse(os.environ.get("DATABASE_URL")),
     }
 
 # Password validation
