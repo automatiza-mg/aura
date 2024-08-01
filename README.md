@@ -8,7 +8,7 @@ O objetivo deste repositório é documentar o nosso Sistema de Monitoramento e A
 
 - Clonar repositório
 ```$
-git clone https://github.com/automatiza-mg/sima.git 
+git clone https://github.com/automatiza-mg/sima.git
 ```
 
 - Criar ambiente virtual python e instalar pacotes
@@ -25,7 +25,7 @@ $ pip install -r requirements.txt
 $ python manage.py migrate
 ```
 
-- Criar usuário [ˆ1]
+- Criar usuário[^1]
 
 ```python
 $ python manage.py createsuperuser
@@ -37,7 +37,7 @@ $ python manage.py createsuperuser
 $ $ python manage.py runserver
 ```
 
-[ˆ1] Ao tentar criar seu usuário, se você encontrar o erro "Superuser creation skipped due to not running in a TTY. You can run manage.py createsuperuser in your project to create one manually.", você pode utilizar o comando "winpty" antes de "python" para rodar o comando:
+[^1]: Ao tentar criar seu usuário, se você encontrar o erro "Superuser creation skipped due to not running in a TTY. You can run manage.py createsuperuser in your project to create one manually.", você pode utilizar o comando "winpty" antes de "python" para rodar o comando:
 
 ``` python
 $ winpty python manage.py createsuperuser
