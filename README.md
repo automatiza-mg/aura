@@ -37,8 +37,4 @@ $ python manage.py createsuperuser
 $ $ python manage.py runserver
 ```
 
-[^1]: Ao tentar criar seu usuário, se você encontrar o erro "Superuser creation skipped due to not running in a TTY. You can run manage.py createsuperuser in your project to create one manually.", você pode utilizar o comando "winpty" antes de "python" para rodar o comando:
-
-``` python
-$ winpty python manage.py createsuperuser
-```
+[^1]: Ao tentar criar seu usuário, se você encontrar o erro `Superuser creation skipped due to not running in a TTY. You can run manage.py createsuperuser in your project to create one manually.`, você pode utilizar o comando `winpty python manage.py createsuperuser`.
