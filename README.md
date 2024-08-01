@@ -25,7 +25,7 @@ $ pip install -r requirements.txt
 $ python manage.py migrate
 ```
 
-- Criar usuário
+- Criar usuário [ˆ1]
 
 ```python
 $ python manage.py createsuperuser
@@ -35,4 +35,10 @@ $ python manage.py createsuperuser
 
 ```python
 $ $ python manage.py runserver
+```
+
+[ˆ1] Ao tentar criar seu usuário, se você encontrar o erro "Superuser creation skipped due to not running in a TTY. You can run manage.py createsuperuser in your project to create one manually.", você pode utilizar o comando "winpty" antes de "python" para rodar o comando:
+
+``` python
+$ winpty python manage.py createsuperuser
 ```
