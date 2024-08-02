@@ -8,4 +8,6 @@ python-dotenv==1.0.1
 taskipy==1.13.0
 dj-database-url==2.2.0
 psycopg==3.2.1
-whitenoise==6.7.0
+whitenoise[brotli]==6.7.0
+gunicorn==22.0.0
+uvicorn==0.30.5
