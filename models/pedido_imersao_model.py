@@ -9,6 +9,7 @@ class PedidoImersao(BaseModel):
         ('PA', 'Pedidos de apoio'),
         ('PG', 'Pedidos do gabinete'),
         ('AG', 'Pedidos autogerados'),
+        ('CS', 'Curso'),
     ]
     origem_demanda = models.CharField(
         max_length=2,
