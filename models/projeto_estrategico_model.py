@@ -10,3 +10,6 @@ class ProjetoEstrategico(BaseModel):
         null=True,
         blank=True,
     )
+
+    def __str__(self):
+        return f'{self.nome}'

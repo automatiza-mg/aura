@@ -22,6 +22,9 @@ class Projeto(BaseModel):
     )
     oportunidade_id = models.ForeignKey(PedidoImersao, on_delete=models.CASCADE)
     
+    def __str__(self):
+        return f'{self.nome}'
+
     # origen_demanda_choices = [
     #     ('PA', 'Pedidos de apoio'),
     #     ('PG', 'Pedidos do gabinete'),
