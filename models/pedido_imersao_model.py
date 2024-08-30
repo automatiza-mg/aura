@@ -112,16 +112,16 @@ class PedidoImersao(BaseModel):
         null = True,
         blank = True,
     )
-    existe_bd_choices = [
+    existe_banco_de_dados_choices = [
         ('S', 'Sim'),
         ('N', 'Não'),
     ]
-    existe_bd = models.CharField(
+    existe_banco_de_dados = models.CharField(
         max_length=1,
-        choices=existe_bd_choices,
+        choices=existe_banco_de_dados_choices,
         default='n/a',
     )
-    detalhamento_bd = models.CharField(
+    detalhamento_banco_de_dados = models.CharField(
         max_length=300,
         null = True,
         blank = True,
@@ -136,14 +136,17 @@ class PedidoImersao(BaseModel):
         ('SMT', 'Semestral'),
         ('ANU', 'Anual'),
     ]
-    periocdicidade = models.CharField(
+    periodicidade = models.CharField(
         max_length=3,
         choices=periodicidade_choices,
         default='n/a',
     )
-    recorrencia = models.IntegerField
+    recorrencia = models.IntegerField(
+        null= True,
+        blank= True,
+    )
 
-    tempo_execucao_manual = models.IntegerField(
+    tempo_execucao_manual_min = models.IntegerField(
         null= True,
         blank= True,
     )
