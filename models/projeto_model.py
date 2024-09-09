@@ -1,6 +1,6 @@
 from django.db import models
 from .base_model import BaseModel
-from .pedido_imersao_model import PedidoImersao
+#from .pedido_imersao_model import PedidoImersao
 
 
 class Projeto(BaseModel):
@@ -20,7 +20,7 @@ class Projeto(BaseModel):
         max_length=4,
         choices=fase_choices,
     )
-    oportunidade_id = models.ForeignKey(PedidoImersao, on_delete=models.CASCADE)
+    #oportunidade_id = models.ForeignKey(PedidoImersao, on_delete=models.CASCADE)
     
     def __str__(self):
         return f'{self.nome}'

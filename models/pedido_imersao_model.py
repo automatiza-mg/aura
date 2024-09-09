@@ -3,6 +3,7 @@ from .base_model import BaseModel
 from .orgao_model import Orgao
 from .projeto_estrategico_model import ProjetoEstrategico
 from .usuario_model import Usuario
+from .projeto_model import Projeto
 
 class PedidoImersao(BaseModel):
     origen_demanda_choices = [
@@ -231,5 +232,10 @@ class PedidoImersao(BaseModel):
         null = True,
         blank = True,
     )
+    projeto_id = models.ForeignKey(Projeto,
+                                 on_delete=models.CASCADE,
+                                 default=0,
+                                 )
+
     def __str__(self):
         return f'{self.nome_processo}'
