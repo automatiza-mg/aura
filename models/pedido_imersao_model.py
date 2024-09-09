@@ -234,7 +234,7 @@ class PedidoImersao(BaseModel):
     )
     projeto_id = models.ForeignKey(Projeto,
                                  on_delete=models.CASCADE,
-                                 default=0,
+                                 default=1,
                                  )
 
     def __str__(self):
