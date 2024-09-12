@@ -7,3 +7,6 @@ from .projeto_model import Projeto
 class EquipeProjeto(BaseModel):
     user_id = models.ForeignKey(Usuario, on_delete=models.CASCADE) 
     projeto_id = models.ForeignKey(Projeto, on_delete=models.CASCADE) 
+
+    def __str__(self):
+        return f'{self.projeto_id} - {self.user_id}'
