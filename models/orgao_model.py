@@ -7,8 +7,9 @@ class Orgao(BaseModel):
         null=True,
         blank=True,
     )
-    nome = models.CharField(max_length=100)
-    sigla = models.CharField(max_length=10)
+    nome = models.CharField(max_length=100, unique=True)
+    sigla = models.CharField(max_length=10, unique=True)
+    
 
     def __str__(self):
-        return f'{self.nome}'
+        return f'{self.sigla}'
