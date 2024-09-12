@@ -4,7 +4,7 @@ from .base_model import BaseModel
 
 
 class Projeto(BaseModel):
-    data_fim = models.DateTimeField(
+    data_fim = models.DateField(
         null=True,
         blank=True,
     )
