@@ -20,7 +20,12 @@ class Projeto(BaseModel):
         max_length=4,
         choices=fase_choices,
     )
-    #oportunidade_id = models.ForeignKey(PedidoImersao, on_delete=models.CASCADE)
+    # oportunidade_id = models.ForeignKey(PedidoImersao, 
+    #                                     on_delete=models.CASCADE, 
+    #                                     null=True, 
+    #                                     blank=True,
+    #                                     default='n/a'
+    #)
     
     def __str__(self):
         return f'{self.nome}'
