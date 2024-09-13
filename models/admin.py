@@ -46,12 +46,6 @@ class SistemaAdmin(admin.ModelAdmin):
 class IndicadorAdmin(admin.ModelAdmin):
    pass
 
-# class UsuarioAdmin(admin.ModelAdmin):
-#     list_display = (
-#         'nome',
-#         'email',
-#         'github_user',
-#     )
 class EquipeProjetoAdmin(admin.ModelAdmin):
     pass
 
@@ -65,7 +59,7 @@ class ProjetoEstrategicoAdmin(admin.ModelAdmin):
     list_display = (
         'nome',
     )
-    
+
 
 admin.site.register(Orgao, OrgaoAdmin)
 admin.site.register(PedidoImersao, PedidoImersaoAdmin)

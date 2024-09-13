@@ -5,7 +5,7 @@ from .pedido_imersao_model import PedidoImersao
 
 class Robo(BaseModel):
     nome = models.CharField(max_length=100)
-   
+
     tempo_execucao_robo = models.IntegerField(
         null= True,
         blank= True,
@@ -16,8 +16,6 @@ class Robo(BaseModel):
         blank= True,
     )
 
-    #sistema_id = models.ForeignKey(Sistema, on_delete=models.CASCADE)
-    
     fase_choices = [
         ('NAOI', 'Não iniciado'),
         ('EXEC', 'Em execução'),
@@ -28,8 +26,6 @@ class Robo(BaseModel):
         choices=fase_choices,
     )
     oportunidade_id = models.ForeignKey(PedidoImersao, on_delete=models.CASCADE)
-    
+
     def __str__(self):
         return f'{self.nome}'
-    
-   

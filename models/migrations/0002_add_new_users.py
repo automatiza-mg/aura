@@ -15,11 +15,10 @@ def create_users(apps, schema_editor):
         'augusta.lamas@planejamento.mg.gov.br',
         'gabriel.dornas@planejamento.mg.gov.br',
         'raiane.souza@seguranca.mg.gov.br',
-        'm755263@ca.mg.gov.br',
+        'isabelle.oliveira@ca.mg.gov.br',
         'henrique.romano@seguranca.mg.gov.br',
         'henrique.ribeiro@seguranca.mg.gov.br',
         'felipe.simoes@seguranca.mg.gov.br',
-        # Add more users as needed
     ]
     for user in new_users:
         username = user.split('@')[0]
@@ -34,7 +33,7 @@ def create_users(apps, schema_editor):
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('models', '0002_create_superuser'),
+        ('models', '0001_initial'),
     ]
 
     operations = [
