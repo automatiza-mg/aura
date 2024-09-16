@@ -6,12 +6,12 @@ from .sistema_model import Sistema
 class Robo(BaseModel):
     nome = models.CharField(max_length=100)
 
-    tempo_execucao_robo = models.IntegerField(
+    tempo_execucao_robo_min = models.IntegerField(
         null= True,
         blank= True,
     )
 
-    tempo_execucao_manual = models.IntegerField(
+    tempo_execucao_manual_min = models.IntegerField(
         null= True,
         blank= True,
     )
