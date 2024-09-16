@@ -35,6 +35,8 @@ class PedidoImersao(BaseModel):
         max_length=254,
     )
     telefone_demandante = models.CharField(
+        null = True,
+        blank = True,
         max_length=13,
     )
     orgao_id = models.ForeignKey(Orgao,
@@ -171,8 +173,13 @@ class PedidoImersao(BaseModel):
     nivel_prioridade = models.CharField(
         max_length=1,
         choices=nivel_prioridade_choices,
+        null = True,
+        blank = True,
     )
-    nota_prioridade = models.IntegerField()
+    nota_prioridade = models.IntegerField(
+        null = True,
+        blank = True,
+    )
 
     formato_atendimento_choices = [
         ('IA', 'IMERSÃO AUTOMATIZA'),
