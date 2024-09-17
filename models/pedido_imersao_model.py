@@ -4,6 +4,7 @@ from .orgao_model import Orgao
 from .projeto_estrategico_model import ProjetoEstrategico
 from .usuario_model import Usuario
 from .projeto_model import Projeto
+from django.core.validators import MinValueValidator
 
 class PedidoImersao(BaseModel):
 
@@ -120,9 +121,10 @@ class PedidoImersao(BaseModel):
         blank= True,
     )
 
-    tempo_execucao_manual_min = models.IntegerField(
+    tempo_execucao_manual_min = models.FloatField(
         null= True,
         blank= True,
+        validators = [MinValueValidator(0.0)],
     )
     impacto_arrecadacao_choices = yes_no_list
     impacto_arrecadacao = models.CharField(
