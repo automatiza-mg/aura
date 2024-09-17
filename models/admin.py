@@ -10,6 +10,7 @@ from .equipe_projeto_model import EquipeProjeto
 from .avaliacao_model import Avaliacao
 from .pedido_manutencao_model import PedidoManutencao
 from .projeto_estrategico_model import ProjetoEstrategico
+from .equipe_robo_model import EquipeRobo
 
 class OrgaoAdmin(admin.ModelAdmin):
     # fields at the models' index page
@@ -60,6 +61,8 @@ class ProjetoEstrategicoAdmin(admin.ModelAdmin):
         'nome',
     )
 
+class EquipeRoboAdmin(admin.ModelAdmin):
+    pass
 
 admin.site.register(Orgao, OrgaoAdmin)
 admin.site.register(PedidoImersao, PedidoImersaoAdmin)
@@ -72,3 +75,4 @@ admin.site.register(EquipeProjeto, EquipeProjetoAdmin)
 admin.site.register(Avaliacao, AvaliacaoAdmin)
 admin.site.register(PedidoManutencao, PedidoManutencaoAdmin)
 admin.site.register(ProjetoEstrategico, ProjetoEstrategicoAdmin)
+admin.site.register(EquipeRobo, EquipeRoboAdmin)
