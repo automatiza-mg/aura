@@ -158,6 +158,7 @@ class PedidoImersao(BaseModel):
     )
     status_choices = [
         ('NAN', 'PEDIDO NÃO ANALISADO'),
+        ('PRI', 'PRIMEIRO CONTATO'),
         ('APR', 'PEDIDO APROVADO'),
         ('ENC', 'PEDIDO ENCAMINHADO'),
         ('NAT', 'PEDIDO NÃO ATENDIDO'),
