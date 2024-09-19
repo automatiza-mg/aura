@@ -29,8 +29,9 @@ class OrgaoAdmin(admin.ModelAdmin):
 
 class PedidoImersaoAdmin(admin.ModelAdmin):
     list_display = (
-        'origem_demanda',
+        'nome_processo',
         'nome_demandante',
+        'origem_demanda',
     )
 
 class ProjetoAdmin(admin.ModelAdmin):

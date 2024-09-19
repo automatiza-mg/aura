@@ -103,6 +103,7 @@ class PedidoImersao(BaseModel):
         blank = True,
     )
     periodicidade_choices = [
+        ('UNI', 'ÚNICO'),
         ('DIA', 'DIÁRIO'),
         ('SMN', 'SEMANAL'),
         ('QUI', 'QUINZENAL'),
