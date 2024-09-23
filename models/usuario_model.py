@@ -1,15 +1,11 @@
+from django.contrib.auth.models import AbstractUser
 from django.db import models
-from .base_model import BaseModel
 
 
-class Usuario(BaseModel):
-    nome = models.CharField(
-        max_length=100,
-    )
-    email = models.EmailField(
-        max_length=254,
-    )
+class Usuario(AbstractUser):
     github_user = models.URLField(
         max_length=300,
     )
 
+    class Meta:
+        db_table = 'auth_user'

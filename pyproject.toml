@@ -1,0 +1,5 @@
+[tool.taskipy.tasks]
+makemigrations = { cmd = "python manage.py makemigrations", help = "Cria arquivos de migrações." }
+migrate = { cmd = "python manage.py migrate", help = "Migra mudanças para banco de dados." }
+dev-server = { cmd = "python manage.py runserver", help = "Liga servidor de desenvolvimento." }
+prod-server = { cmd = "python -m gunicorn sima.asgi:application -k uvicorn.workers.UvicornWorker", help = "Liga servidor de produção." }

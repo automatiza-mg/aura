@@ -3,12 +3,27 @@ from .base_model import BaseModel
 from .orgao_model import Orgao
 from .projeto_estrategico_model import ProjetoEstrategico
 from .usuario_model import Usuario
+from .projeto_model import Projeto
+from django.core.validators import MinValueValidator
 
 class PedidoImersao(BaseModel):
+
+    yes_no_list = [
+        ('S', 'SIM'),
+        ('N', 'NÃO'),
+    ]
+
+    amb_list = [
+        ('A', 'ALTO'),
+        ('M', 'MÉDIO'),
+        ('B', 'BAIXO'),
+    ]
+
     origen_demanda_choices = [
-        ('PA', 'Pedidos de apoio'),
-        ('PG', 'Pedidos do gabinete'),
-        ('AG', 'Pedidos autogerados'),
+        ('PA', 'PEDIDO DE APOIO'),
+        ('PG', 'PEDIDOS DO GABINETE'),
+        ('AG', 'PEDIDOS AUTOGERADOS'),
+        ('CS', 'CURSO'),
     ]
     origem_demanda = models.CharField(
         max_length=2,
@@ -19,141 +34,103 @@ class PedidoImersao(BaseModel):
     )
     email_demandante = models.EmailField(
         max_length=254,
-        default='n/a',
     )
     telefone_demandante = models.CharField(
+        null = True,
+        blank = True,
         max_length=13,
-        default='n/a',
     )
     orgao_id = models.ForeignKey(Orgao,
                                  on_delete=models.CASCADE,
-                                 default=0,
                                  )
 
     orgao_outros = models.CharField(
+        null = True,
+        blank = True,
         max_length=100,
-        default='n/a',
     )
     nome_processo = models.CharField(
         max_length=100,
-        default='n/a',
     )
-    descricao_processo = models.CharField(
-        max_length=300,
-        default='n/a',
-    )
-    processo_comum_choices = [
-        ('S', 'Sim'),
-        ('N', 'Não'),
-    ]
+    descricao_processo = models.TextField()
+    processo_comum_choices = yes_no_list
     processo_comum_orgaos = models.CharField(
         max_length=1,
         choices=processo_comum_choices,
-        default='n/a',
     )
-    conhecimento_automate_choices = [
-        ('A', 'Alto'),
-        ('M', 'Médio'),
-        ('B', 'Baixo'),
-    ]
+    conhecimento_automate_choices =  amb_list
     conhecimento_automate = models.CharField(
         max_length=1,
         choices=conhecimento_automate_choices,
-        default='n/a'
     )
-    conhecimento_excel_choices = [
-        ('A', 'Alto'),
-        ('M', 'Médio'),
-        ('B', 'Baixo'),
-    ]
+    conhecimento_excel_choices =  amb_list
     conhecimento_excel = models.CharField(
         max_length=1,
         choices=conhecimento_excel_choices,
-        default='n/a',
     )
-    conhecimento_programacao_choices = [
-        ('A', 'Alto'),
-        ('M', 'Médio'),
-        ('B', 'Baixo'),
-    ]
+    conhecimento_programacao_choices =  amb_list
     conhecimento_programacao = models.CharField(
         max_length=1,
         choices=conhecimento_programacao_choices,
-        default='n/a',
     )
-    projeto_estrategico_choices = [
-        ('S', 'Sim'),
-        ('N', 'Não'),
-    ]
+    projeto_estrategico_choices = yes_no_list
     projeto_estrategico = models.CharField(
         max_length=1,
         choices=projeto_estrategico_choices,
-        default='n/a',
     )
-    Projeto_estrategico_id = models.ForeignKey(
+    projeto_estrategico_id = models.ForeignKey(
         ProjetoEstrategico,
         on_delete=models.CASCADE,
         null = True,
         blank= True,
-        default=0,
     )
-    existe_automacao_choices = [
-        ('S', 'Sim'),
-        ('N', 'Não'),
-    ]
+    existe_automacao_choices = yes_no_list
     existe_automacao = models.CharField(
         max_length=1,
         choices=existe_automacao_choices,
-        default='n/a',
     )
-    detalhamento_automacao = models.CharField(
-        max_length=300,
+    detalhamento_automacao = models.TextField(
         null = True,
         blank = True,
     )
-    existe_bd_choices = [
-        ('S', 'Sim'),
-        ('N', 'Não'),
-    ]
-    existe_bd = models.CharField(
+    existe_banco_de_dados_choices = yes_no_list
+    existe_banco_de_dados = models.CharField(
         max_length=1,
-        choices=existe_bd_choices,
-        default='n/a',
+        choices=existe_banco_de_dados_choices,
     )
-    detalhamento_bd = models.CharField(
-        max_length=300,
+    detalhamento_banco_de_dados = models.TextField(
         null = True,
         blank = True,
     )
     periodicidade_choices = [
-        ('DIA', 'Diário'),
-        ('SMN', 'Semanal'),
-        ('QUI', 'Quinzenal'),
-        ('MEN', 'Mensal'),
-        ('BIM', 'Bimestral'),
-        ('TRI', 'Trimestral'),
-        ('SMT', 'Semestral'),
-        ('ANU', 'Anual'),
+        ('UNI', 'ÚNICO'),
+        ('DIA', 'DIÁRIO'),
+        ('SMN', 'SEMANAL'),
+        ('QUI', 'QUINZENAL'),
+        ('MEN', 'MENSAL'),
+        ('BIM', 'BIMESTRAL'),
+        ('TRI', 'TRIMESTRAL'),
+        ('SMT', 'SEMESTRAL'),
+        ('ANU', 'ANUAL'),
     ]
-    periocdicidade = models.CharField(
+    periodicidade = models.CharField(
         max_length=3,
         choices=periodicidade_choices,
-        default='n/a',
     )
-    recorrencia = models.IntegerField
-
-    tempo_execucao_manual = models.IntegerField(
+    recorrencia = models.IntegerField(
         null= True,
         blank= True,
     )
-    impacto_arrecadacao_choices = [
-        ('S', 'Sim'),
-        ('N', 'Não'),
-    ]
+
+    tempo_execucao_manual_min = models.FloatField(
+        null= True,
+        blank= True,
+        validators = [MinValueValidator(0.0)],
+    )
+    impacto_arrecadacao_choices = yes_no_list
     impacto_arrecadacao = models.CharField(
         max_length=1,
         choices=impacto_arrecadacao_choices,
-        default='n/a',
     )
     valor_arrecadacao = models.DecimalField(
         max_digits=10,
@@ -164,62 +141,57 @@ class PedidoImersao(BaseModel):
     usuario_id_principal = models.ForeignKey(Usuario,
                                              related_name='usuario_id_principal',
                                              on_delete=models.CASCADE,
-                                             default=0,
                                              )
 
     usuario_id_apoio = models.ForeignKey(Usuario,
                                          related_name='usuario_id_apoio',
                                          on_delete=models.CASCADE,
-                                         default=0,
                                          )
 
     fase_choices = [
-        ('PREC', 'Pedido recebido'),
-        ('PEAN', 'Pedido em análise'),
-        ('PANA', 'Pedido analisado'),
+        ('PREC', 'PEDIDO RECEBIDO'),
+        ('PEAN', 'PEDIDO EM ANÁLISE'),
+        ('PANA', 'PEDIDO ANALISADO'),
     ]
     fase = models.CharField(
         max_length=4,
         choices=fase_choices,
-        default='n/a',
     )
     status_choices = [
-        ('NAN', 'Pedido não analisado'),
-        ('APR', 'Pedido aprovado'),
-        ('ENC', 'Pedido encaminhado'),
-        ('NAT', 'Pedido não atendido'),
+        ('NAN', 'PEDIDO NÃO ANALISADO'),
+        ('PRI', 'PRIMEIRO CONTATO'),
+        ('APR', 'PEDIDO APROVADO'),
+        ('ENC', 'PEDIDO ENCAMINHADO'),
+        ('NAT', 'PEDIDO NÃO ATENDIDO'),
     ]
     status = models.CharField(
         max_length=4,
         choices=status_choices,
-        default='n/a',
     )
     link_issue = models.URLField(
         max_length=300,
         null = True,
         blank = True,
     )
-    nivel_prioridade_choices =[
-        ('A', 'Alto'),
-        ('M', 'Médio'),
-        ('B', 'Baixo'),
-    ]
+    nivel_prioridade_choices = amb_list
     nivel_prioridade = models.CharField(
         max_length=1,
         choices=nivel_prioridade_choices,
-        default='n/a',
+        null = True,
+        blank = True,
     )
     nota_prioridade = models.IntegerField(
-        default=0,
+        null = True,
+        blank = True,
     )
 
     formato_atendimento_choices = [
-        ('IA', 'Imersão automatiza'),
-        ('TV', 'Time volante'),
-        ('CM', 'Curso e mentoria'),
-        ('CU', 'Curso EAD'),
-        ('PE', 'Projeto extensão'),
-        ('ND', 'Não definido'),
+        ('IA', 'IMERSÃO AUTOMATIZA'),
+        ('TV', 'TIME VOLANTE'),
+        ('CM', 'CURSO MENTORIA'),
+        ('CU', 'CURSO EAD'),
+        ('PE', 'PROJETO EXTENSÃO'),
+        ('ND', 'NÃO DEFINIDO'),
     ]
     formato_atendimento = models.CharField(
         max_length=2,
@@ -227,3 +199,11 @@ class PedidoImersao(BaseModel):
         null = True,
         blank = True,
     )
+    projeto_id = models.ForeignKey(Projeto,
+                                 on_delete=models.CASCADE,
+                                 null=True,
+                                 blank=True,
+    )
+
+    def __str__(self):
+        return f'{self.nome_processo}'

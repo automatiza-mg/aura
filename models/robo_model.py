@@ -1,23 +1,24 @@
 from django.db import models
 from .base_model import BaseModel
 from .pedido_imersao_model import PedidoImersao
-#from .sistema_model import Sistema
+from .sistema_model import Sistema
+from django.core.validators import MinValueValidator
 
 class Robo(BaseModel):
     nome = models.CharField(max_length=100)
-   
-    tempo_execucao_robo = models.IntegerField(
+
+    tempo_execucao_robo_min = models.FloatField(
         null= True,
         blank= True,
+        validators=[MinValueValidator(0.0)],
     )
 
-    tempo_execucao_manual = models.IntegerField(
+    tempo_execucao_manual_min = models.FloatField(
         null= True,
         blank= True,
+        validators=[MinValueValidator(0.0)],
     )
 
-    #sistema_id = models.ForeignKey(Sistema, on_delete=models.CASCADE)
-    
     fase_choices = [
         ('NAOI', 'Não iniciado'),
         ('EXEC', 'Em execução'),
@@ -28,17 +29,12 @@ class Robo(BaseModel):
         choices=fase_choices,
     )
     oportunidade_id = models.ForeignKey(PedidoImersao, on_delete=models.CASCADE)
-    
-    # origen_demanda_choices = [
-    #     ('PA', 'Pedidos de apoio'),
-    #     ('PG', 'Pedidos do gabinete'),
-    #     ('AG', 'Pedidos autogerados'),
-    # ]
-    # origem_demanda = models.CharField(
-    #     max_length=2,
-    #     choices=origen_demanda_choices,
-    # )
-    # nome_demandante = models.CharField(
-    #     max_length=100,
-    # )
-   
+
+    sistema_id = models.ForeignKey(Sistema, 
+                                on_delete=models.CASCADE,
+                                null=True,
+                                blank=True,
+    )
+
+    def __str__(self):
+        return f'{self.nome}'
