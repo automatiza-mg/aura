@@ -8,7 +8,7 @@ class Orgao(BaseModel):
         blank=True,
     )
     nome = models.CharField(max_length=100, unique=True)
-    sigla = models.CharField(max_length=10, unique=True)
+    sigla = models.CharField(max_length=50, unique=True)
     
 
     def __str__(self):
