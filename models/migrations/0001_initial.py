@@ -25,7 +25,7 @@ class Migration(migrations.Migration):
                 ('data_atualizacao', models.DateField(auto_now=True)),
                 ('data_fim', models.DateField(blank=True, null=True)),
                 ('nome', models.CharField(max_length=100, unique=True)),
-                ('sigla', models.CharField(max_length=50, unique=True)),
+                ('sigla', models.CharField(max_length=10, unique=True)),
             ],
             options={
                 'abstract': False,

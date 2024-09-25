@@ -2,7 +2,7 @@
 
 import os
 from dotenv import load_dotenv
-from django.db import migrations
+from django.db import migrations, models
 from models.orgao_model import Orgao
 
 def create_orgao(apps, schema_editor):
@@ -106,5 +106,10 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
+        migrations.AlterField(
+            model_name='orgao',
+            name='sigla',
+            field=models.CharField(max_length=50, unique=True),
+        ),
         migrations.RunPython(create_orgao),
     ]
